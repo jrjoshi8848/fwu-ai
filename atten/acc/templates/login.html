@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        
+        
+</body>
+</html>-->
+E:\attendance\attendance\templates\base.html
+
+{% block content %}
+ {% if not user.is_authenticated %}
+  <h2>Login</h2>
+  <div>
+  <form action="/log/" method='POST'>
+    {% csrf_token %}
+       <label for="username">Username:</label>
+       <input type="text" name="username" id="username" required>
+       <label for="password">Password:</label>
+       <input type="password" name="password" id="password" required>
+       
+       <button type="submit" >submit</button>
+      
+   </form>
+  </div>
+ {% endif %}
+{% endblock %}
